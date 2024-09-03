@@ -1,0 +1,43 @@
+@font-face {
+  font-family: Nothing;
+  src: url(Nothing\ Font.ttf);
+}
+
+.weather-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  height: 100vh;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+.weather-holder h1 {
+  font-size: 24vmin;
+  margin: unset;
+  font-family: Nothing;
+  font-weight: 400;
+}
+
+.weather-holder h2 {
+  font-size: 6vmin;
+  margin: unset;
+  font-family: Nothing;
+  font-weight: 400;
+}
+
+.weather-holder h3 {
+  font-size: 6vmin;
+  margin: unset;
+  font-family: Nothing;
+  font-weight: 200;
+}
+
+.weather-holder img {
+  height: 8vmin;
+  margin: unset;
+  font-family: Nothing;
+  font-weight: 500;
+}

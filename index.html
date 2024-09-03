@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Standby mode</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="clock.css" />
+    <link rel="stylesheet" href="weather.css" />
+  </head>
+  <body>
+    <div
+      onclick="document.getElementById('start').style.visibility = 'hidden'; requestFullScreen(document.body);"
+      id="start"
+      class="start"
+    >
+      <span
+        >Turn device to horizontal mode, allow location services and tap
+        anywhere to start standby mode</span
+      >
+    </div>
+    <!-- Credits to https://codepen.io/bohai-yu on codepen for making this clock -->
+    <div class="clock-holder">
+      <div class="clock" id="utility-clock" style="transform: scale(1)">
+        <div class="centre">
+          <div class="dynamic"></div>
+          <div class="expand round circle-1"></div>
+          <div class="anchor hour">
+            <div class="element thin-hand"></div>
+            <div class="element fat-hand"></div>
+          </div>
+          <div class="anchor minute">
+            <div class="element thin-hand"></div>
+            <div class="element fat-hand minute-hand"></div>
+          </div>
+          <div class="anchor second">
+            <div class="element second-hand"></div>
+          </div>
+          <div class="expand round circle-2"></div>
+          <div class="expand round circle-3"></div>
+        </div>
+      </div>
+    </div>
+    <div class="weather-holder">
+      <div class="weather">
+        <h2 id="city"></h2>
+        <h1 id="temp"></h1>
+        <img id="codeIcon" src="" alt="" />
+        <h3 id="codeText"></h3>
+        <h3 id="minMaxTemp"></h3>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="clock.js"></script>
+    <script src="weather.js"></script>
+  </body>
+</html>

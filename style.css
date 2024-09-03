@@ -1,0 +1,29 @@
+@font-face {
+  font-family: Nothing;
+  src: url(Nothing\ Font.ttf);
+}
+
+body {
+  all: unset;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #000;
+  color: #fff;
+  overflow: hidden;
+}
+
+.start {
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  z-index: 999;
+  font-family: Nothing;
+  font-weight: 400;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
