@@ -289,7 +289,7 @@ let codeIcon = ""
 let codeText = ""
 let day = ""
 let units = ""
-
+let logData = ""
 function getData() {
     navigator.geolocation.getCurrentPosition((position) => {
         const lat = position.coords.latitude
@@ -306,30 +306,31 @@ function getData() {
             });
         console.log(`https://geocode.maps.co/reverse?lat=${lat}&lon=${lon}&api_key=66d5719bb0cce552213082lnefed200`)
         console.log(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,is_day,weather_code&minutely_15=temperature_2m&daily=weather_code&timezone=auto&forecast_days=1&forecast_minutely_15=24`)
+
         fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,is_day,weather_code&minutely_15=temperature_2m&daily=weather_code&timezone=auto&forecast_days=1&forecast_minutely_15=24`)
             .then(response => response.json())
             .then(data => {
+                logData = data
+                console.log(data)
                 temp = Math.round(data.current.temperature_2m)
+                console.log(temp)
                 minTemp = Math.round(Math.min(...data.minutely_15.temperature_2m))
+                console.log(minTemp)
                 maxTemp = Math.round(Math.max(...data.minutely_15.temperature_2m))
-                code = data.current.weather_code - 1
+                console.log(maxTemp)
+                code = data.current.weather_code
+                console.log(code)
                 day = data.current.is_day
+                console.log(day)
                 units = data.current_units.temperature_2m
-                if (day = 1) {
+                console.log(units)
+                if (day === 1) {
                     codeIcon = codeLocations[code].day.image
                     codeText = codeLocations[code].day.description
                 } else {
                     codeIcon = codeLocations[code].night.image
                     codeText = codeLocations[code].night.description
                 }
-                console.log(temp)
-                console.log(minTemp)
-                console.log(maxTemp)
-                console.log(codeIcon)
-                console.log(codeText)
-                console.log(code)
-                console.log(day)
-                console.log(units)
                 document.getElementById("temp").innerHTML = temp + "°"
                 document.getElementById("codeIcon").src = codeIcon
                 document.getElementById("codeText").innerHTML = codeText
@@ -344,5 +345,6 @@ function getData() {
 
     });
 }
-setInterval(getData(), 300000)
+
+setInterval(getData(), 1200000)
 
